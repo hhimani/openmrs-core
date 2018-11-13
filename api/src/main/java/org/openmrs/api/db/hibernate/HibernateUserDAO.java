@@ -100,7 +100,7 @@ public class HibernateUserDAO implements UserDAO {
 		List<User> users = query.list();
 		
 		if (users == null || users.isEmpty()) {
-			log.warn("request for username '" + username + "' not found");
+			log.warn("request for mentioned username not found");
 			return null;
 		}
 		
@@ -325,7 +325,7 @@ public class HibernateUserDAO implements UserDAO {
 			throw new DAOException("Passwords don't match");
 		}
 		
-		log.info("updating password for " + u.getUsername());
+		log.info("updating password for the mentioned user);
 		
 		// update the user with the new password
 		String salt = getLoginCredential(u).getSalt();
